@@ -1,0 +1,269 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <title>فرص العمل</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.rtl.min.css" rel="stylesheet">
+   <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet">
+   
+ <!-- Google Fonts (Cairo ) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700&display=swap" rel="stylesheet">
+   
+<style>
+    body {
+      background-color: #f8f9fa;
+      font-family: "Cairo", sans-serif;
+    }
+
+    /* الشريط العلوي */
+    .navbar {
+      background: linear-gradient(90deg, #0d6efd, #198754);
+    }
+
+    .navbar-brand {
+      font-weight: bold;
+      color: #fff !important;
+      
+    }
+
+    /* البطاقات */
+    .card {
+      border-radius: 15px;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+    }
+
+    .progress {
+      height: 15px;
+      border-radius: 10px;
+    }
+
+    footer {
+      background-color: #0d6efd;
+      color: white;
+      padding: 10px 0;
+      text-align: center;
+      margin-top: 40px;
+      width: auto;
+    }
+
+    @media (max-width: 768px) {
+      .card { margin-bottom: 20px; }
+      h3 { font-size: 1.3rem; }
+    }
+
+ .offcanvas-body .nav-link {
+            padding: 12px 25px;
+            font-size: 15px;
+            color: #495057;
+            display: flex;
+            align-items: center;
+           
+        }
+        .offcanvas-body .nav-link i {
+            margin-left: 15px;
+            font-size: 18px;
+           
+            text-align: center;
+        }
+        .offcanvas-body .nav-link:hover, .offcanvas-body .nav-link.active {
+            color: #0d6efd;
+            background-color: #e9ecef;
+        }
+
+/* الشريط الجانبي ديناميكي */
+.custom-sidebar.offcanvas-start {
+    width: auto;            /* العرض حسب المحتوى */
+    min-width: 220px;       /* الحد الأدنى للعرض */
+    max-width: 320px; 
+    
+
+}
+
+/* منع التفاف النص داخل الروابط */
+.custom-sidebar .nav-link {
+    white-space: nowrap;
+}
+
+/* استجابة للشاشات الصغيرة */
+@media (max-width: 768px) {
+    .custom-sidebar.offcanvas-start {
+        width: 80%;         /* تقريباً يغطي معظم الشاشة على الهاتف */
+        min-width: auto;    /* إزالة الحد الأدنى */
+        max-width: 90%;     /* الحد الأقصى للشاشة الصغيرة */
+    }
+}
+
+       
+  </style>
+</head>
+
+    <!-- Top Navbar -->
+    <nav class="navbar navbar-light bg-white shadow-sm">
+        <div class="container-fluid">
+            <!-- Hamburger Menu Button -->
+            <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#sidebar" aria-controls="sidebar">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <a class="navbar-brand ms-auto" href="#">منصة التأهيل</a>
+        </div>
+    </nav>
+    
+<!-- Sidebar (Offcanvas ) -->
+<div class="offcanvas offcanvas-start custom-sidebar" tabindex="-1" id="sidebar" aria-labelledby="sidebarLabel">
+    <div class="offcanvas-header">
+        <h5 class="offcanvas-title" id="sidebarLabel">القائمة الرئيسية</h5>
+        <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+    </div>
+    <div class="offcanvas-body">
+        <ul class="nav flex-column">
+            <li class="nav-item">
+                <a class="nav-link active" href="dashboard.html"><i class="bi bi-house-door-fill"></i> الصفحة الرئيسية</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="assessment.html"><i class="bi bi-collection-play-fill"></i> تقيم المهارات</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="program-detail.html"><i class="bi bi-search"></i> تصفح الدورات</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="jobs.html"><i class="bi bi-briefcase-fill"></i> فرص العمل</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="profile.html"><i class="bi bi-person-fill"></i> ملفي الشخصي</a>
+            </li>
+             <li class="nav-item">
+                <a class="nav-link" href="logout.html"><i class="bi bi-person-fill"></i>🔒 تسجيل الخروج</a>
+            </li>
+          
+        </ul>
+    </div>
+</div>
+
+<body class="bg-light">
+  <nav class="navbar navbar-expand-lg navbar-light bg-white shadow-sm">
+    <div class="container">
+      <a class="navbar-brand fw-bold" href="">الوظائف المتاحة</a>
+    </div>
+  </nav>
+
+  <main class="container py-4">
+    <h4 class="mb-3">فرص العمل المتاحة</h4>
+
+    <div class="list-group">
+      <div class="list-group-item d-flex justify-content-between align-items-start">
+        <div>
+          <div class="fw-bold">مطور ويب مبتدئ</div>
+          <div class="small text-muted">شركة تقنية — متطلب: HTML, CSS, JS</div>
+        </div>
+        <div class="d-flex gap-2">
+          <a class="btn btn-sm btn-primary" href="">تقديم</a>
+        </div>
+      </div>
+
+      <div class="list-group-item d-flex justify-content-between align-items-start">
+        <div>
+          <div class="fw-bold">مطور ويب مبتدئ</div>
+          <div class="small text-muted">شركة تقنية — متطلب: HTML, CSS, JS</div>
+        </div>
+        <div class="d-flex gap-2">
+          <a class="btn btn-sm btn-primary" href="assessment.html">تقديم</a>
+        </div>
+      </div>
+
+      <div class="list-group-item d-flex justify-content-between align-items-start">
+        <div>
+          <div class="fw-bold">مطور ويب مبتدئ</div>
+          <div class="small text-muted">شركة تقنية — متطلب: HTML, CSS, JS</div>
+        </div>
+        <div class="d-flex gap-2">
+          <a class="btn btn-sm btn-primary" href="">تقديم</a>
+        </div>
+      </div>
+
+      <div class="list-group-item d-flex justify-content-between align-items-start">
+        <div>
+          <div class="fw-bold">أخصائي خدمة عملاء</div>
+          <div class="small text-muted">مركز اتصالات — مهارات تواصل</div>
+        </div>
+        <div>
+          <a class="btn btn-sm btn-primary" href="">تقديم</a>
+        </div>
+      </div>
+    </div>
+
+  </main>
+
+  <!-- 🔹 تذييل -->
+  <footer>
+    <p>© 2025 منصة التأهيل والتوظيف - جميع الحقوق محفوظة</p>
+  </footer>
+  <script>
+  const apiBase = "http://localhost:3000"; // رابط السيرفر
+
+  async function loadJobs() {
+    try {
+      const res = await fetch(`${apiBase}/jobs`);
+      const jobs = await res.json();
+
+      const jobContainer = document.querySelector(".list-group");
+      jobContainer.innerHTML = ""; // تفريغ القائمة القديمة
+
+      if (jobs.length === 0) {
+        jobContainer.innerHTML = `<div class="text-center text-muted">لا توجد وظائف حالياً</div>`;
+        return;
+      }
+
+      jobs.forEach(job => {
+        const jobItem = document.createElement("div");
+        jobItem.className = "list-group-item d-flex justify-content-between align-items-start";
+        jobItem.innerHTML = `
+          <div>
+            <div class="fw-bold">${job.title}</div>
+            <div class="small text-muted">${job.company} — ${job.location || "غير محدد"}</div>
+            <div class="text-muted mt-1">${job.description || ""}</div>
+          </div>
+          <div>
+            <a class="btn btn-sm btn-primary" href="assessment.html">تقديم</a>
+          </div>
+        `;
+        jobContainer.appendChild(jobItem);
+      });
+    } catch (err) {
+      console.error("خطأ أثناء تحميل الوظائف:", err);
+      alert("حدث خطأ أثناء تحميل الوظائف ❌");
+    }
+  }
+  
+ // فرص العمل
+        const jobList = document.getElementById("jobList");
+        jobList.innerHTML = "";
+        data.jobs.forEach(job => {
+          const div = document.createElement("div");
+          div.className = "col-md-6";
+          div.innerHTML = `
+            <div class="card p-3">
+              <h6>وظيفة: ${job.title}</h6>
+              <p class="text-muted">${job.company}</p>
+              <button class="btn  btn-primary btn-sm" onclick="window.location.href='assessment.html?jobId=${job.id}'">تقديم الآن</button>
+            </div>`;
+          jobList.appendChild(div);
+    
+        });
+
+  // تحميل الوظائف عند فتح الصفحة
+  loadJobs();
+</script>
+
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

@@ -1,0 +1,302 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>تأهيل — تقييم المهارات</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.rtl.min.css" rel="stylesheet">
+ <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet">
+   
+ <!-- Google Fonts (Cairo ) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700&display=swap" rel="stylesheet">
+  
+  <!--<link href="style.css" rel="stylesheet">-->
+</head>
+<body class="bg-light">
+
+
+<style>
+    body {
+      background-color: #f8f9fa;
+      font-family: "Cairo", sans-serif;
+    }
+
+    /* الشريط العلوي */
+    .navbar {
+      background: linear-gradient(90deg, #0d6efd, #198754);
+    }
+
+    .navbar-brand {
+      font-weight: bold;
+      color: #fff !important;
+      
+    }
+
+    /* البطاقات */
+    .card {
+      border-radius: 15px;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+    }
+
+    .progress {
+      height: 15px;
+      border-radius: 10px;
+    }
+
+    footer {
+      background-color: #0d6efd;
+      color: white;
+      padding: 10px 0;
+      text-align: center;
+      margin-top: 40px;
+    }
+
+    @media (max-width: 768px) {
+      .card { margin-bottom: 20px; }
+      h3 { font-size: 1.3rem; }
+    }
+
+ .offcanvas-body .nav-link {
+            padding: 12px 25px;
+            font-size: 15px;
+            color: #495057;
+            display: flex;
+            align-items: center;
+           
+        }
+        .offcanvas-body .nav-link i {
+            margin-left: 15px;
+            font-size: 18px;
+           
+            text-align: center;
+        }
+        .offcanvas-body .nav-link:hover, .offcanvas-body .nav-link.active {
+            color: #0d6efd;
+            background-color: #e9ecef;
+        }
+
+/* الشريط الجانبي ديناميكي */
+.custom-sidebar.offcanvas-start {
+    width: auto;            /* العرض حسب المحتوى */
+    min-width: 220px;       /* الحد الأدنى للعرض */
+    max-width: 320px; 
+    
+
+}
+
+/* منع التفاف النص داخل الروابط */
+.custom-sidebar .nav-link {
+    white-space: nowrap;
+}
+
+/* استجابة للشاشات الصغيرة */
+@media (max-width: 768px) {
+    .custom-sidebar.offcanvas-start {
+        width: 80%;         /* تقريباً يغطي معظم الشاشة على الهاتف */
+        min-width: auto;    /* إزالة الحد الأدنى */
+        max-width: 90%;     /* الحد الأقصى للشاشة الصغيرة */
+    }
+}
+
+       
+  </style>
+
+
+    <!-- Top Navbar -->
+    <nav class="navbar navbar-light bg-white shadow-sm">
+        <div class="container-fluid">
+            <!-- Hamburger Menu Button -->
+            <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#sidebar" aria-controls="sidebar">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <a class="navbar-brand ms-auto" href="#">منصة التأهيل</a>
+        </div>
+    </nav>
+
+<!-- Sidebar (Offcanvas ) -->
+<div class="offcanvas offcanvas-start custom-sidebar" tabindex="-1" id="sidebar" aria-labelledby="sidebarLabel">
+    <div class="offcanvas-header">
+        <h5 class="offcanvas-title" id="sidebarLabel">القائمة الرئيسية</h5>
+        <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+    </div>
+    <div class="offcanvas-body">
+        <ul class="nav flex-column">
+            <li class="nav-item">
+                <a class="nav-link active" href="dashboard.html"><i class="bi bi-house-door-fill"></i> لوحة التحكم</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#"><i class="bi bi-collection-play-fill"></i> دوراتي</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="program-detail.html"><i class="bi bi-search"></i> تصفح الدورات</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="jobs.html"><i class="bi bi-briefcase-fill"></i> فرص العمل</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="profile.html"><i class="bi bi-person-fill"></i> ملفي الشخصي</a>
+            </li>
+             <li class="nav-item">
+                <a class="nav-link" href="logout.html"><i class="bi bi-person-fill"></i>🔒 تسجيل الخروج</a>
+            </li>
+           
+        </ul>
+    </div>
+</div>
+
+
+  <main class="container py-5">
+    <div class="row justify-content-center">
+      <div class="col-lg-8">
+        <div class="card shadow-sm mb-4">
+          <div class="card-body">
+            <h4 class="mb-3">استمارة تقييم المهارات</h4>
+            <p class="text-muted small">أجب عن الأسئلة التالية حتى نتمكن من اقتراح برامج تدريبية مناسبة لك.</p>
+
+            <form>
+              <div class="row g-3">
+                <div class="col-md-6">
+                  <label class="form-label">الاسم الكامل</label>
+                  <input class="form-control" required>
+                </div>
+
+                <div class="col-md-6">
+                  <label class="form-label">المدينة</label>
+                  <input class="form-control"required>
+                </div>
+
+                <div class="col-12">
+                  <label class="form-label">المؤهل التعليمي</label>
+                  <select class="form-select"required>
+                    <option>دون مؤهل</option>
+                    <option>شهادة ثانوية</option>
+                    <option>دبلوم</option>
+                    <option>بكالوريوس أو أعلى</option>
+                  </select>
+                </div>
+
+                <div class="col-12">
+                  <label class="form-label">المهارات الحالية (اختر ما ينطبق)</label>
+                  <div class="d-flex flex-wrap gap-2">
+                    <div class="form-check">
+                      <input class="form-check-input" type="checkbox" id="skill1">
+                      <label class="form-check-label" for="skill1">إدارة مشاريع</label>
+                    </div>
+                    <div class="form-check">
+                      <input class="form-check-input" type="checkbox" id="skill2">
+                      <label class="form-check-label" for="skill2">تطوير ويب</label>
+                    </div>
+                    <div class="form-check">
+                      <input class="form-check-input" type="checkbox" id="skill3">
+                      <label class="form-check-label" for="skill3">تصميم جرافيك</label>
+                    </div>
+                    <div class="form-check">
+                      <input class="form-check-input" type="checkbox" id="skill4">
+                      <label class="form-check-label" for="skill4">مبيعات وخدمة عملاء</label>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="col-12">
+                  <label class="form-label"required>مدة التفرغ للتدريب أسبوعيًا</label>
+                  <input type="number" class="form-control" min="0" value="5">
+                </div>
+
+                <div class="col-12">
+                  <label class="form-label">ماذا تود أن تتعلم؟ (اختياري)</label>
+                  <textarea class="form-control" rows="3"></textarea>
+                </div>
+
+               <div class="col-12 d-grid">
+                
+ <button type="submit" class="btn btn-success"><a href="jobs.html">  ارسال البيانات واقتراح البرامج </a></button>
+</div>
+
+
+<!-- هذا المكان لعرض النتائج -->
+<div id="assessment-results" class="mt-3"></div>
+
+              </div>
+            </form>
+
+          </div>
+        </div>
+
+        <div class="card shadow-sm">
+          <div class="card-body">
+            <h5>نصائح سريعة</h5>
+            <ul class="small">
+              <li>حدد مهاراتك الحقيقية بصدق حتى تكون التوصيات دقيقة.</li>
+              <li>ابدأ بدورات قصيرة وإذا أعجبتك اتجه للأكثر تخصصًا.</li>
+            </ul>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </main>
+
+<script>
+const apiBase = "http://localhost:3000";
+
+document.querySelector("form").addEventListener("submit", async (e) => {
+  e.preventDefault();
+
+  // جمع البيانات من الحقول
+  const name = document.querySelector('input[type="text"]').value.trim();
+  const city = document.querySelectorAll('input[type="text"]')[1].value.trim();
+  const education = document.querySelector("select").value;
+  const hours = document.querySelector('input[type="number"]').value;
+  const goal = document.querySelector("textarea").value.trim();
+
+  // المهارات المختارة
+  const skills = [];
+  document.querySelectorAll(".form-check-input").forEach(chk => {
+    if (chk.checked) skills.push(chk.nextElementSibling.textContent.trim());
+  });
+
+  // إرسال البيانات للسيرفر
+  // try {
+  //   const res = await fetch(`${apiBase}/submit-assessment`, {
+  //     method: "POST",
+  //     headers: { "Content-Type": "application/json" },
+  //     body: JSON.stringify({ name, city, education, skills, hours, goal })
+  //   });
+
+    const data = await res.json();
+
+    if (data.success) {
+      alert(data.message);
+
+      // عرض البرامج المقترحة
+      let resultHTML = "<h5 class='mt-3 text-success'>🎯 البرامج المقترحة لك:</h5><ul>";
+      data.programs.forEach(p => {
+        resultHTML += `<li>${p}</li>`;
+      });
+      resultHTML += "</ul>";
+
+     document.getElementById("assessment-results").innerHTML = resultHTML;
+
+    } else {
+      alert("❌ " + data.message);
+    }
+
+  } catch (err) {
+    alert("حدث خطأ أثناء الإرسال للسيرفر");
+    console.error(err);
+  }
+});
+</script>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+
+</body>
+</html>

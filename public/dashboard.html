@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>الصفحة الرئيسية - منصة التأهيل والتوظيف</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.rtl.min.css" rel="stylesheet">
+   <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet">
+   
+ <!-- Google Fonts (Cairo ) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700&display=swap" rel="stylesheet">
+   
+<style>
+    body {
+      background-color: #f8f9fa;
+      font-family: "Cairo", sans-serif;
+    }
+
+    /* الشريط العلوي */
+    .navbar {
+      background: linear-gradient(90deg, #0d6efd, #198754);
+    }
+
+    .navbar-brand {
+      font-weight: bold;
+      color: #fff !important;
+      
+    }
+
+    /* البطاقات */
+    .card {
+      border-radius: 15px;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+    }
+
+    .progress {
+      height: 15px;
+      border-radius: 10px;
+    }
+
+    footer {
+      background-color: #0d6efd;
+      color: white;
+      padding: 10px 0;
+      text-align: center;
+      margin-top: 40px;
+    }
+
+    @media (max-width: 768px) {
+      .card { margin-bottom: 20px; }
+      h3 { font-size: 1.3rem; }
+    }
+
+ .offcanvas-body .nav-link {
+            padding: 12px 25px;
+            font-size: 15px;
+            color: #495057;
+            display: flex;
+            align-items: center;
+           
+        }
+        .offcanvas-body .nav-link i {
+            margin-left: 15px;
+            font-size: 18px;
+           
+            text-align: center;
+        }
+        .offcanvas-body .nav-link:hover, .offcanvas-body .nav-link.active {
+            color: #0d6efd;
+            background-color: #e9ecef;
+        }
+
+/* الشريط الجانبي ديناميكي */
+.custom-sidebar.offcanvas-start {
+    width: auto;            /* العرض حسب المحتوى */
+    min-width: 220px;       /* الحد الأدنى للعرض */
+    max-width: 320px; 
+    
+
+}
+
+/* منع التفاف النص داخل الروابط */
+.custom-sidebar .nav-link {
+    white-space: nowrap;
+}
+
+/* استجابة للشاشات الصغيرة */
+@media (max-width: 768px) {
+    .custom-sidebar.offcanvas-start {
+        width: 80%;         /* تقريباً يغطي معظم الشاشة على الهاتف */
+        min-width: auto;    /* إزالة الحد الأدنى */
+        max-width: 90%;     /* الحد الأقصى للشاشة الصغيرة */
+    }
+}
+
+       
+  </style>
+</head>
+<body>
+
+    <!-- Top Navbar -->
+    <nav class="navbar navbar-light bg-white shadow-sm">
+        <div class="container-fluid">
+            <!-- Hamburger Menu Button -->
+            <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#sidebar" aria-controls="sidebar">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <a class="navbar-brand ms-auto" href="#">منصة التأهيل</a>
+        </div>
+    </nav>
+
+
+<!-- Sidebar (Offcanvas ) -->
+<div class="offcanvas offcanvas-start custom-sidebar" tabindex="-1" id="sidebar" aria-labelledby="sidebarLabel">
+    <div class="offcanvas-header">
+        <h5 class="offcanvas-title" id="sidebarLabel">القائمة الرئيسية</h5>
+        <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+    </div>
+    <div class="offcanvas-body">
+        <ul class="nav flex-column">
+            <li class="nav-item">
+                <a class="nav-link active" href="#"><i class="bi bi-house-door-fill"></i> لوحة التحكم</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="assessment.html"><i class="bi bi-collection-play-fill"></i> تقيم المهارات</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="program-detail.html"><i class="bi bi-search"></i> تصفح الدورات</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="jobs.html"><i class="bi bi-briefcase-fill"></i> فرص العمل</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="profile.html"><i class="bi bi-person-fill"></i> ملفي الشخصي</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="admin-dashboard.html"><i class="bi bi-person-fill"></i> لوحة المدير</a>
+            </li>
+             <li class="nav-item">
+                <a class="nav-link" href="trainer-dashboard.html"><i class="bi bi-person-fill"></i> لوحة المدربين</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="logout.html"><i class="bi bi-person-fill"></i>🔒 تسجيل الخروج</a>
+            </li>
+            
+        </ul>
+    </div>
+</div>
+
+
+  <!-- 🔹 المحتوى -->
+  <div class="container mt-5">
+    <!-- معلومات المستخدم -->
+    <div class="text-center mb-4">
+      <h3>مرحبًا بك 👋 <span class="text-primary" id="username">المستخدم</span></h3>
+      <p class="text-muted">تابع تقدمك في التدريب واكتشف فرص العمل المناسبة لك.</p>
+    </div>
+
+    <!-- 🔸 صف البطاقات -->
+    <div class="row g-4">
+      <!-- التقدم 
+      <div class="col-md-4 col-sm-12">
+        <div class="card p-3 text-center">
+          <h5>تقدمك في التدريب</h5>
+          <div class="progress my-3">
+            <div class="progress-bar bg-success" id="progressBar" style="width: 0%">0%</div>
+          </div>
+          <p class="text-muted" id="progressText">جارِ التحميل...</p>
+        </div>
+      </div>-->
+
+      <!-- البرامج التدريبية -->
+      
+      <div class="col-md-4 col-sm-12">
+        <a href="program-detail.html">
+        <div class="card p-3">
+           <h5 class="text-center text-primary mb-3">  عرض البرامج المقترحة</h5>
+          <ul class="list-group" id="programList">
+            <li class="list-group-item text-center text-muted">انقر  هنا للعرض...</li>
+          </ul>
+        </div>
+        </a>
+      </div>
+                  
+      <!-- الشهادات -->
+      <div class="col-md-4 col-sm-12">
+        <div class="card p-3 text-center">
+          <h5 class="text-primary">📜 شهاداتك</h5>
+          <ul class="list-group" id="certList">
+            <li class="list-group-item text-center text-muted">لم تطور بعد </li>
+          </ul>
+        </div>
+      </div>
+
+ 
+  <div class="col-md-4 col-sm-12">
+    <a href="jobs.html">
+        <div class="card p-3 text-center">
+          <h5 class="text-primary">💼 فرص عمل مقترحة لك</h5>
+          <ul class="list-group" id="certList">
+            <li class="list-group-item text-center text-muted">انقر هنا للعرض...</li>
+          </ul>
+        </div>
+    </a>
+      </div>
+      
+
+    </div>
+
+    <!-- فرص العمل -->
+    <!-- <div class="mt-5">
+      <h4 class="text-center mb-3 text-success">💼 فرص عمل مقترحة لك</h4>
+      <div class="row g-3" id="jobList">
+        <div class="col-12 text-center text-muted">جارِ التحميل...</div>
+      </div>
+    </div> -->
+   
+  </div>
+
+  <!-- 🔹 تذييل -->
+  <footer>
+    <p>© 2025 منصة التأهيل والتوظيف - جميع الحقوق محفوظة</p>
+  </footer>
+
+  <script>
+    const apiBase = "http://localhost:3000"; // عدّلها حسب السيرفر
+
+    // تحميل بيانات المستخدم من قاعدة البيانات
+    async function loadDashboardData() {
+      try {
+        const res = await fetch(`${apiBase}/dashboard-data`);
+        const data = await res.json();
+
+        if (!res.ok) throw new Error("فشل في تحميل البيانات");
+
+        // اسم المستخدم
+        document.getElementById("username").textContent = data.user.username;
+
+        // التقدم
+        document.getElementById("progressBar").style.width = data.progress + "%";
+        document.getElementById("progressBar").textContent = data.progress + "%";
+        document.getElementById("progressText").textContent = `أنجزت ${data.completedCourses} من ${data.totalCourses} دورات`;
+
+        // البرامج
+        const programList = document.getElementById("programList");
+        programList.innerHTML = "";
+        data.programs.forEach(p => {
+          const li = document.createElement("li");
+          li.className = "list-group-item";
+          li.textContent = `🎓 ${p}`;
+          programList.appendChild(li);
+        });
+
+        // الشهادات
+        const certList = document.getElementById("certList");
+        certList.innerHTML = "";
+        data.certificates.forEach(c => {
+          const li = document.createElement("li");
+          li.className = "list-group-item";
+          li.textContent = `📜 ${c}`;
+          certList.appendChild(li);
+        });
+
+        // فرص العمل
+        const jobList = document.getElementById("jobList");
+        jobList.innerHTML = "";
+        data.jobs.forEach(job => {
+          const div = document.createElement("div");
+          div.className = "col-md-6";
+          div.innerHTML = `
+            <div class="card p-3">
+              <h6>وظيفة: ${job.title}</h6>
+              <p class="text-muted">${job.company}</p>
+              <button class="btn btn-primary btn-sm">تقديم الآن</button>
+            </div>`;
+          jobList.appendChild(div);
+        });
+
+      } catch (err) {
+       // alert("حدث خطأ أثناء تحميل البيانات ❌");
+        console.error(err);
+      }
+    }            
+
+    // تسجيل الخروج
+    function logout() {
+      localStorage.clear();
+      alert("تم تسجيل الخروج ✅");
+      window.location.href = "login.html";
+    }
+
+    // تحميل البيانات عند الدخول
+    loadDashboardData();
+  </script>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

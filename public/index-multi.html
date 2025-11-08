@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>تسجيل الدخول - منصة التأهيل والتوظيف</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.rtl.min.css" rel="stylesheet">
+  <style>
+    body {
+      background-color: #d8f3dc;
+      font-family: "Cairo", sans-serif;
+    }
+    .step-card {
+      background: #fff;
+      border-radius: 15px;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+      padding: 30px;
+      max-width: 400px;
+      margin: auto;
+    }
+    .step-number {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      background: #0d6efd;
+      color: #fff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: auto;
+      font-weight: bold;
+    }
+    .step-title {
+      font-size: 1.2rem;
+      font-weight: bold;
+      color: #0d6efd;
+      margin-top: 10px;
+      margin-bottom: 20px;
+    }
+    .hidden { display: none; }
+    button {
+      border-radius: 10px;
+    }
+  </style>
+</head>
+<body class="d-flex align-items-center justify-content-center vh-100">
+
+  <!-- المرحلة 1 -->
+  <div class="step-card text-center" id="step1">
+    <div class="step-number">1</div>
+    <div class="step-title">تسجيل الدخول</div>
+    <form id="formStep1">
+      <input type="text" class="form-control mb-3" placeholder="اسم المستخدم" id="username" required>
+      <input type="password" class="form-control mb-3" placeholder="كلمة المرور" id="password" required>
+      <button type="button" class="btn btn-primary w-100" onclick="nextStep(2)">التالي</button>
+    </form>
+  </div>
+
+  <!-- المرحلة 2 -->
+  <div class="step-card text-center hidden" id="step2">
+    <div class="step-number">2</div>
+    <div class="step-title">تأكيد الهوية</div>
+    <form id="formStep2">
+      <input type="text" class="form-control mb-3" placeholder="الاسم الكامل" id="fullname" required>
+      <input type="number" class="form-control mb-3" placeholder="رقم الهوية" id="national_id" required>
+      <input type="tel" class="form-control mb-3" placeholder="رقم الجوال" id="phone" required>
+      <button type="button" class="btn btn-primary w-100" onclick="nextStep(3)">التالي</button>
+    </form>
+  </div>
+
+  <!-- المرحلة 3 -->
+  <div class="step-card text-center hidden" id="step3">
+    <div class="step-number">3</div>
+    <div class="step-title">التحقق من الهوية</div>
+    <p class="mb-3 text-muted">تم إرسال رمز التحقق (اختباري):</p>
+    <h4 class="fw-bold text-success mb-3" id="otpCode">—</h4>
+    <input type="text" class="form-control mb-3" placeholder="اكتب الرمز المرسل" id="otpInput" required>
+    <button class="btn btn-success w-100" onclick="goToDashboard()"><a href="dashboard.html">دخول ✅</a> </button>
+  </div>
+
+  <script>
+    const apiBase = "http://localhost:3000";
+    let realCode = null;
+
+    function showStep(step) {
+      document.querySelectorAll(".step-card").forEach(el => el.classList.add("hidden"));
+      document.getElementById("step" + step).classList.remove("hidden");
+    }
+
+    async function nextStep(step) {
+      if (step === 2) {
+        const username = document.getElementById("username").value.trim();
+        const password = document.getElementById("password").value.trim();
+
+        if (!username || !password) return alert("يرجى إدخال جميع البيانات");
+
+        const res = await fetch(`${apiBase}/login-step1`, {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ username, password })
+        });
+
+        const data = await res.json();
+        if (res.ok) {
+          showStep(2);
+        } else {
+          alert(data.message || "اسم المستخدم أو كلمة المرور غير صحيحة ❌");
+        }
+      }
+
+      else if (step === 3) {
+        const fullname = document.getElementById("fullname").value.trim();
+        const national_id = document.getElementById("national_id").value.trim();
+        const phone = document.getElementById("phone").value.trim();
+
+        if (!fullname || !national_id || !phone) return alert("يرجى إدخال جميع البيانات");
+
+        const res = await fetch(`${apiBase}/login-step2`, {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ fullname, national_id, phone })
+        });
+
+        const data = await res.json();
+        if (res.ok) {
+          realCode = data.code; // حفظ الكود الفعلي
+          document.getElementById("otpCode").innerText = data.code;
+          showStep(3);
+        } else {
+          alert(data.message || "بيانات الهوية غير صحيحة ❌");
+        }
+      }
+    }
+
+    async function goToDashboard() {
+      const inputCode = document.getElementById("otpInput").value.trim();
+
+      if (!inputCode) return alert("يرجى إدخال رمز التحقق");
+
+      const res = await fetch(`${apiBase}/login-step3`, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ inputCode, realCode })
+      });
+
+      const data = await res.json();
+
+      if (res.ok) {
+        alert("تم التحقق بنجاح ✅ سيتم نقلك إلى الصفحة الرئيسية.");
+        window.location.href = "dashboard.html";
+      } else {
+        alert(data.message || "رمز التحقق غير صحيح ❌");
+      }
+    }
+  </script>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

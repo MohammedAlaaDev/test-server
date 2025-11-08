@@ -1,0 +1,202 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <title>الملف الشخصي</title>
+
+  <!-- Bootstrap & Icons -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.rtl.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet">
+  <!-- Google Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    body {
+      background-color: #f8f9fa;
+      font-family: "Cairo", sans-serif;
+    }
+
+    .navbar {
+      background: linear-gradient(90deg, #0d6efd, #198754);
+    }
+
+    .navbar-brand {
+      font-weight: bold;
+      color: #fff !important;
+    }
+
+    .card {
+      border-radius: 15px;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+    }
+
+    .avatar-placeholder {
+      width: 100px;
+      height: 100px;
+      border-radius: 50%;
+      background: #0d6efd;
+      color: #fff;
+      font-size: 40px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: auto;
+    }
+
+    footer {
+      background-color: #0d6efd;
+      color: white;
+      padding: 10px 0;
+      text-align: center;
+      margin-top: 40px;
+    }
+
+    .offcanvas-body .nav-link {
+      padding: 12px 25px;
+      font-size: 15px;
+      color: #495057;
+      display: flex;
+      align-items: center;
+    }
+
+    .offcanvas-body .nav-link i {
+      margin-left: 15px;
+      font-size: 18px;
+    }
+
+    .offcanvas-body .nav-link:hover, .offcanvas-body .nav-link.active {
+      color: #0d6efd;
+      background-color: #e9ecef;
+    }
+
+    .custom-sidebar.offcanvas-start {
+      min-width: 220px;
+      max-width: 320px;
+    }
+  </style>
+</head>
+
+<body class="bg-light">
+
+  <!-- 🔹 الشريط العلوي -->
+  <nav class="navbar navbar-light shadow-sm">
+    <div class="container-fluid">
+      <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#sidebar" aria-controls="sidebar">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <a class="navbar-brand ms-auto" href="#">منصة التأهيل</a>
+    </div>
+  </nav>
+
+  <!-- 🔹 القائمة الجانبية -->
+  <div class="offcanvas offcanvas-start custom-sidebar" tabindex="-1" id="sidebar">
+    <div class="offcanvas-header">
+      <h5 class="offcanvas-title">القائمة الرئيسية</h5>
+      <button type="button" class="btn-close" data-bs-dismiss="offcanvas"></button>
+    </div>
+    <div class="offcanvas-body">
+      <ul class="nav flex-column">
+        <li class="nav-item"><a class="nav-link" href="dashboard.html"><i class="bi bi-house-door-fill"></i> الصفحة الرئيسية</a></li>
+        <li class="nav-item"><a class="nav-link" href="assessment.html"><i class="bi bi-collection-play-fill"></i> تقييم المهارات</a></li>
+        <li class="nav-item"><a class="nav-link" href="program-detail.html"><i class="bi bi-search"></i> تصفح الدورات</a></li>
+        <li class="nav-item"><a class="nav-link" href="jobs.html"><i class="bi bi-briefcase-fill"></i> فرص العمل</a></li>
+        <li class="nav-item"><a class="nav-link active" href="profile.html"><i class="bi bi-person-fill"></i> ملفي الشخصي</a></li>
+        <li class="nav-item"><a class="nav-link text-danger" href="logout.html"><i class="bi bi-box-arrow-right"></i> تسجيل الخروج</a></li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- 🔹 المحتوى الرئيسي -->
+  <main class="container py-4">
+    <div class="row">
+      <!-- بطاقة المستخدم -->
+      <div class="col-md-4">
+        <div class="card shadow-sm">
+          <div class="card-body text-center">
+            <div class="avatar-placeholder mb-3" id="avatarLetter">م</div>
+            <h5 id="profileName" class="mb-0">سيتم تطويرها لاحقا...</h5>
+            <p class="small text-muted" id="profileUsername">---</p>
+            <button class="btn btn-outline-primary btn-sm mt-2" onclick="window.location.href='assessment.html'">تعديل الملف</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- معلومات المستخدم -->
+      <div class="col-md-8">
+        <div class="card shadow-sm">
+          <div class="card-body">
+            <h6 class="fw-bold mb-3">المعلومات الشخصية</h6>
+            <dl class="row mb-0">
+              <dt class="col-sm-4">رقم الهوية</dt>
+              <dd class="col-sm-8" id="profileID">---</dd>
+
+              <dt class="col-sm-4">رقم الهاتف</dt>
+              <dd class="col-sm-8" id="profilePhone">---</dd>
+
+              <dt class="col-sm-4">اسم المستخدم</dt>
+              <dd class="col-sm-8" id="profileUsernameInfo">---</dd>
+
+              <dt class="col-sm-4">المعرف (ID)</dt>
+              <dd class="col-sm-8" id="profileDbId">---</dd>
+            </dl>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <!-- 🔹 التذييل -->
+  <footer>
+    <p>© 2025 منصة التأهيل والتوظيف - جميع الحقوق محفوظة</p>
+  </footer>
+
+  <!-- 🔹 سكربت جلب البيانات -->
+  <script>
+    const apiBase = "http://localhost:3000"; // عدل عند الحاجة
+    const userId = localStorage.getItem("userId");
+
+    async function loadUserProfile() {
+      // if (!userId) {
+      //   alert("يرجى تسجيل الدخول أولاً");
+      //   window.location.href = "login.html";
+      //   return;
+      }
+
+      try {
+        const res = await fetch(`${apiBase}/user-profile/${userId}`);
+        const data = await res.json();
+
+        if (!data.success) throw new Error("فشل تحميل البيانات");
+
+        const user = data.user;
+
+        // تعبئة البيانات في الصفحة
+        document.getElementById("profileName").textContent = user.fullname;
+        document.getElementById("profileUsername").textContent = "@" + user.username;
+        document.getElementById("profilePhone").textContent = user.phone || "غير متوفر";
+        document.getElementById("profileID").textContent = user.national_id || "غير متوفر";
+        document.getElementById("profileUsernameInfo").textContent = user.username;
+        document.getElementById("profileDbId").textContent = user.id;
+
+        // الحرف الأول في الصورة الرمزية
+        document.getElementById("avatarLetter").textContent = user.fullname.charAt(0);
+      } catch (err) {
+        console.error(err);
+        alert("حدث خطأ أثناء تحميل البيانات ❌");
+      }
+    
+
+    loadUserProfile();
+  </script>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+
+</body>
+</html>
